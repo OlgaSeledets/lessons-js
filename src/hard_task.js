@@ -1,5 +1,33 @@
-const num = 266219;
+let lang = prompt('ru или en?');
 
-const multiplication = num.toString().split('').reduce((previous, next) => previous * next, 1) ** 3;
+if (lang === 'ru') {
+    console.log('Понедельник ', 'Вторник ', 'Среда ', 'Четверг ', 'Пятница ', 'Суббота ', 'Воскресенье');
+} else if (lang === 'en') {
+    console.log('Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday');
+}
 
-console.log(multiplication.toString().slice(0 , 2));
+lang = prompt('ru или en?');
+
+switch (lang) {
+    case 'en':
+        console.log('Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday');
+        break;
+    case 'ru':
+        console.log('Понедельник ', 'Вторник ', 'Среда ', 'Четверг ', 'Пятница ', 'Суббота ', 'Воскресенье');
+        break;
+}
+
+lang = prompt('ru или en?');
+
+let arr = [lang];
+
+arr['ru'] = ['Понедельник ', 'Вторник ', 'Среда ', 'Четверг ', 'Пятница ', 'Суббота ', 'Воскресенье'];
+arr['en'] = ['Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday'];
+
+console.log(arr[lang]);
+
+let namePerson = prompt('Введите имя пользователя');
+
+let result = namePerson === 'Артём' ? 'директор' : namePerson === 'Максим' ? 'преподаватель' : 'студент';
+
+console.log(result);
