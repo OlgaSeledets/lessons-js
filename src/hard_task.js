@@ -54,5 +54,19 @@ for (let i = 0; i < arrNum.length; i++) {
     }
 }
 
+let Num = 100;
+let prime = true;
+
+for (let i = 2; i <= Num; i++) {
+    for (let j = 2; j < i; j++) {
+        if (i % j === 0) {
+            prime = false;
+        }
+    }
+    if (prime === true) {
+        console.log(i, 'Делители этого числа 1 и ', i);
+    }
+    prime = true;
+}
 
 
