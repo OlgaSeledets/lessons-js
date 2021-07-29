@@ -45,3 +45,14 @@ const getString = function(text) {
 }
 
 console.log(getString(text));
+
+const arrNum = ['1100', '1200', '2200', '2300', '3300', '3400', '4400'];
+
+for (let i = 0; i < arrNum.length; i++) {
+    if (arrNum[i].charAt(0) === '2' || arrNum[i].charAt(0) === '4') {
+        console.log(arrNum[i]);
+    }
+}
+
+
+
