@@ -1,14 +1,14 @@
-let lang = prompt('ru или en?');
+const langOne = prompt('ru или en?');
 
-if (lang === 'ru') {
+if (langOne === 'ru') {
     console.log('Понедельник ', 'Вторник ', 'Среда ', 'Четверг ', 'Пятница ', 'Суббота ', 'Воскресенье');
-} else if (lang === 'en') {
+} else if (langOne === 'en') {
     console.log('Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday');
 }
 
-lang = prompt('ru или en?');
+const langTwo = prompt('ru или en?');
 
-switch (lang) {
+switch (langTwo) {
     case 'en':
         console.log('Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday');
         break;
@@ -17,14 +17,14 @@ switch (lang) {
         break;
 }
 
-lang = prompt('ru или en?');
+const langThree = prompt('ru или en?');
 
-let arr = [lang];
+let arr = [langThree];
 
 arr['ru'] = ['Понедельник ', 'Вторник ', 'Среда ', 'Четверг ', 'Пятница ', 'Суббота ', 'Воскресенье'];
 arr['en'] = ['Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ', 'Sunday'];
 
-console.log(arr[lang]);
+console.log(arr[langThree]);
 
 let namePerson = prompt('Введите имя пользователя');
 
@@ -54,10 +54,10 @@ for (let i = 0; i < arrNum.length; i++) {
     }
 }
 
-let Num = 100;
+const NUM = 100;
 let prime = true;
 
-for (let i = 2; i <= Num; i++) {
+for (let i = 2; i <= NUM; i++) {
     for (let j = 2; j < i; j++) {
         if (i % j === 0) {
             prime = false;
