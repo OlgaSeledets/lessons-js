@@ -8,7 +8,6 @@ let desiredNumber = Math.ceil(Math.random() * 99) + 1;
 let num = prompt('Угадай число от 1 до 100');
 let attempts = 1;
 let remainder = 9;
-let answer; 
 let flag = true;
 
 let check = function () {
@@ -56,17 +55,16 @@ function player() {
             }
 
         } else {
-            answer = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
-            if (answer === false) {
-                alert('Пока :)');
-                flag = false;
-            } else {
+            if (confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?')) {
                 flag = true;
                 num = prompt('Угадай число от 1 до 100');
                 attempts = 1;
                 remainder = 9;
                 desiredNumber = Math.ceil(Math.random() * 99) + 1;
                 player();
+            } else {
+                alert('Пока :)');
+                flag = false;
             }
         }
         player();
