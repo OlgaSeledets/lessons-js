@@ -9,6 +9,7 @@ let num = prompt('Угадай число от 1 до 100');
 let attempts = 1;
 let remainder = 9;
 let answer; 
+let flag = true;
 
 let check = function () {
     while (!isNumber(num)) {
@@ -19,55 +20,57 @@ let check = function () {
 check();
 
 function player() {
-    if (num != desiredNumber && attempts <= 9) {
-        if (num > desiredNumber) {
-            num = prompt('Загаданное число меньше, осталось попыток ' + remainder);
+    if (flag) {
+        if (num != desiredNumber && attempts <= 9) {
+            if (num > desiredNumber) {
+                num = prompt('Загаданное число меньше, осталось попыток ' + remainder);
 
-            if (!isNumber(num)) {
-                check();
+                if (!isNumber(num)) {
+                    check();
+                }
+
+                attempts++;
+                remainder--;
+                
+            } else if (num < desiredNumber) {
+                num = prompt('Загаданное число больше, осталось попыток ' + remainder);
+
+                if (!isNumber(num)) {
+                    check();
+                }
+
+                attempts++;
+                remainder--;
+            }
+        } else if (attempts > 9) {
+            if (confirm('Попытки закончились, хотите сыграть еще?')) {
+                flag = true;
+                num = prompt('Угадай число от 1 до 100');
+                attempts = 1;
+                remainder = 9;
+                desiredNumber = Math.ceil(Math.random() * 99) + 1;
+                player();
+            } else{
+                alert('Пока :)');
+                flag = false;
             }
 
-            attempts++;
-            remainder--;
-            
-        } else if (num < desiredNumber) {
-            num = prompt('Загаданное число больше, осталось попыток ' + remainder);
-
-            if (!isNumber(num)) {
-                check();
-            }
-
-            attempts++;
-            remainder--;
-        }
-    } else if (attempts > 9) {
-        if (confirm('Попытки закончились, хотите сыграть еще?')) {
-            num = prompt('Угадай число от 1 до 100');
-            attempts = 1;
-            remainder = 9;
-            desiredNumber = Math.ceil(Math.random() * 99) + 1;
-            player();
-        } else{
-            alert('Пока :)');
-        }
-        
-    } else {
-        answer = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
-        if (answer === false) {
-            alert('Пока :)');
         } else {
-            num = prompt('Угадай число от 1 до 100');
-            attempts = 1;
-            remainder = 9;
-            desiredNumber = Math.ceil(Math.random() * 99) + 1;
-            player();
+            answer = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
+            if (answer === false) {
+                alert('Пока :)');
+                flag = false;
+            } else {
+                flag = true;
+                num = prompt('Угадай число от 1 до 100');
+                attempts = 1;
+                remainder = 9;
+                desiredNumber = Math.ceil(Math.random() * 99) + 1;
+                player();
+            }
         }
-    }
-    player();
+        player();
+    }  
 }
 
 player();
-
-
-
-
